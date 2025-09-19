@@ -70,7 +70,7 @@ export const caseResolvers = {
           const validation = CaseFilterSchema.safeParse(args.filter);
           if (!validation.success) {
             throw new Error(
-              `Invalid filter: ${validation.error.errors[0].message}`
+              `Invalid filter: ${validation.error.issues[0].message}`
             );
           }
         }
@@ -182,7 +182,7 @@ export const caseResolvers = {
         const validation = CreateCaseSchema.safeParse(input);
         if (!validation.success) {
           throw new Error(
-            `Validation error: ${validation.error.errors[0].message}`
+            `Validation error: ${validation.error.issues[0].message}`
           );
         }
 
@@ -224,7 +224,7 @@ export const caseResolvers = {
         const validation = UpdateCaseSchema.safeParse(input);
         if (!validation.success) {
           throw new Error(
-            `Validation error: ${validation.error.errors[0].message}`
+            `Validation error: ${validation.error.issues[0].message}`
           );
         }
 
