@@ -1,0 +1,16 @@
+overwrite: true
+schema:
+  - ${HASURA_GRAPHQL_URL}:
+      headers:
+        X-Hasura-Admin-Secret: ${HASURA_ADMIN_SECRET}
+documents: null
+generates:
+  ./types/hasura.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      scalars:
+        uuid: string
+        timestamptz: string
+        date: string
